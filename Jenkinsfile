@@ -16,7 +16,7 @@ pipeline {
                 echo 'Test Step: Running pytest'
 
                 # Initializing Conda properly
-                source ~/miniconda3/etc/profile.d/conda.sh
+                source /opt/anaconda3/etc/profile.d/conda.sh
 
                 # Activating the Conda environment (replace 'mlip' with your environment name)
                 conda activate mlip
