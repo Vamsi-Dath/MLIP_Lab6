@@ -10,18 +10,21 @@ pipeline {
                 '''
             }
         }
-                stage('Test') {
+        stage('Test') {
             steps {
                 sh '''#!/bin/bash
-                echo 'Test Step: We run testing tool like pytest here'
+                echo 'Test Step: Running pytest'
 
-                # Initialize conda
-                source /opt/homebrew/Caskroom/miniconda/base/etc/profile.d/conda.sh
+                # Initializing Conda properly
+                source ~/miniconda3/etc/profile.d/conda.sh
 
-                # Activate conda environment
+                # Activating the Conda environment (replace 'mlip' with your environment name)
                 conda activate mlip
 
-                # Run pytest
+                # Ensuring pytest is installed
+                conda install -y pytest
+
+                # Running pytest
                 pytest
 
                 echo 'pytest completed successfully'
